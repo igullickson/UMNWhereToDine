@@ -1,5 +1,11 @@
 To Do:
+<<<<<<< HEAD
 -add 'Closed until ...' functionality
+=======
+-finish rest of dining halls
+-add 'Closed until ...' functionality
+
+>>>>>>> origin/master
 -consider dynamically creating html tables from the data in the javascript arrays
 
 -translate OOP javascript into more widely supported prototype syntax
