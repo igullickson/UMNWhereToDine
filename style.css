@@ -7,7 +7,7 @@ body{
 }
 
 body {
-  background-color: #f1f1f1;
+  /*background-color: #f1f1f1;*/
 }
 div.body {
   background-color:#fff;
@@ -22,6 +22,7 @@ div.body {
 }
 div.header {
   text-align:center;
+  padding-top:40px;
 }
 h2.title {
   margin-top:0px;
@@ -43,10 +44,10 @@ p span {
   font-weight:normal;
   font-size:1em;
 }
-p.expand {
+.info {
+  width:inherit;
   font-style:italic;
   color:grey;
-  padding-right:10px;
 }
 div.head-row {
   border:1px solid #e5e5e5;
@@ -103,14 +104,19 @@ div.content-row {
   color:#ffd75f;
 }
 .content-row thead tr th {
-    text-align:center;
+  text-align:center;
 }
-
+.bot {
+  padding:20px;
+}
 /*==========  Mobile First Method  ==========*/
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
-
+  h3 {
+    width: 280px;
+    text-align: center;
+  }
 }
 
 /* Extra Small Devices, Phones */
@@ -121,8 +127,11 @@ div.content-row {
   div.content-row {
     padding:25px;
   }
-  p.expand {
+  p.right {
     text-align: right;
+  }
+  p.left {
+    text-align:left;
   }
 }
 
@@ -140,6 +149,10 @@ div.content-row {
     transition: 0.5s ease;
 
     margin-top:20px;
+  }
+  h3 {
+    width: 285px;
+    text-align: center;
   }
 }
 
