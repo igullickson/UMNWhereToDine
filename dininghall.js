@@ -25,6 +25,20 @@ class DiningHall {
 		}
 		return 'Closed';
 	}
+	getOpenTime() {
+		if (!this.isopen){
+			var now = new Date();
+			var day = now.getDay();
+			var time = (now.getHours()*12)+minutes; //time in minutes
+			if (time < this.hours[day][this.hours[day].length-1]){
+					time = Math.floor(time/100)*100; //rounds down to neast 100 minutes
+					
+			} //if current time is less than the closing time of the last meal
+			else {
+				return 'tommorrow'; //closed until tomorrow
+			}
+		}
+	}
 	static getNow() {
 		var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 		//var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -63,9 +77,15 @@ class DiningHall {
 			}
 		}
 	}
-
 }
 //DATA
+//end and start hours in minutes for each hall
+var standard_meals = [
+	'Breakfast',
+	'Cold Breakfast',
+	'Lunch or Brunch',
+	'Dinner',
+]
 var cen_hours = [
 	[ //Sunday
 		-1, -1,
@@ -120,6 +140,7 @@ var cen_hours = [
 						810, 930,
 						990, 1200
 					],
+					-1,-1,-1,
 					[//Friday
 						420, 600,
 						600, 660,
@@ -155,6 +176,7 @@ var cen_hours = [
 					660, 840,
 					990, 1200
 				],
+				-1,-1,-1,
 				[//Friday
 					420, 600,
 					600, 660,
@@ -167,12 +189,6 @@ var cen_hours = [
 					660, 810,
 					990, 1140
 				]
-			];
-			var fre_meals = [
-				'Breakfast',
-				'Cold Breakfast',
-				'Lunch or Brunch',
-				'Dinner',
 			];
 			var pio_hours = [
 				[//Sunday
@@ -189,6 +205,7 @@ var cen_hours = [
 					810, 930,
 					990, 1140
 				],
+				-1,-1,-1,
 				[//Friday
 					420, 570,
 					570, 660,
@@ -210,14 +227,99 @@ var cen_hours = [
 				'Lunch or Brunch',
 				'Grill, Soup & Salad',
 				'Dinner',
-			]
+			];
+			var san_hours = [
+				[//Sunday
+					-1, -1,
+					-1, -1,
+					-1, -1,
+					-1, -1
+				],
+				[//Mon-Thurs
+					420, 600,
+					600, 660,
+					660, 840,
+					990, 1200
+				],
+				-1,-1,-1,
+				[//Friday
+					420, 600,
+					600, 660,
+					660, 810,
+					990, 1140
+				],
+				[//Saturday
+					-1, -1,
+					-1, -1,
+					660, 810,
+					990, 1140
+				]
+			];
+			var mid_hours = [
+				[//Sunday
+					-1, -1,
+					540, 570,
+					570, 840,
+					990, 1200
+				],
+				[//Mon-Thurs
+					420, 600,
+					600, 660,
+					660, 840,
+					990, 1200
+				],
+				-1,-1,-1,
+				[//Friday
+					420, 600,
+					600, 660,
+					660, 840,
+					990, 1140
+				],
+				[//Saturday
+					-1,-1,
+					540, 630,
+					630, 840,
+					990, 1140
+				]
+			];
+			var bai_hours = [
+				[//Sunday
+					-1, -1,
+					540, 600,
+					600, 810,
+					990, 1200
+				],
+				[//Mon-Thurs
+					420, 540,
+					-1, -1,
+					660, 810,
+					990, 1200
+				],
+				-1,-1,-1,
+				[//Friday
+					420, 540,
+					-1, -1,
+					660, 810,
+					990, 1140
+				],
+				[//Saturday
+					-1,-1,
+					540, 660,
+					660, 810,
+					990, 1140
+				]
+			];
 			//main
 			function main(){
 				cen = new DiningHall('Centennial','East Bank Super Block',cen_hours, cen_meals);
 				com = new DiningHall('Comstock','East Bank',com_hours,com_meals);
-				fre = new DiningHall('Fresh Food Co. (17th)','17th Ave. Residence Hall', fre_hours, fre_meals);
+				fre = new DiningHall('Fresh Food Co. (17th)','17th Ave. Residence Hall', fre_hours, standard_meals);
 				pio = new DiningHall('Pioneer','East Bank Super Block', pio_hours, pio_meals);
-				var dininghalls = [cen, com, fre, pio]
+				san = new DiningHall('Sanford','East Bank Campus',san_hours, standard_meals);
+				mid = new DiningHall('Middlebrook','West Bank Campus', mid_hours, standard_meals);
+				bai = new DiningHall('Bailey', 'St. Paul Campus', bai_hours, standard_meals);
+
+				var dininghalls = [cen, com, fre, pio, san, mid, bai];
 				for (i=0; i < dininghalls.length; i++){
 					var hall = dininghalls[i];
 					var name = hall.name.substr(0,3).toLowerCase();
@@ -233,7 +335,6 @@ var cen_hours = [
 				}
 				document.getElementById('ctime').innerHTML = DiningHall.getNow();
 			}
-
 			//repeat every minute
 			main();
 			setInterval(function(){ main() }, 60000);
