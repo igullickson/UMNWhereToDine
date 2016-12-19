@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>UMN Where To Eat</title>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href='assets/transformicon/transformicon.css' rel='stylesheet'>
+
+  <link href='style.css' rel='stylesheet'>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class='body'>
+    <div class='content'>
+      <div class='header'>
+        <h2 class='title'><span>U<span id='m'>M</span>N</span> where to eat</h2>
+        <p id='ctime'><span>This app requires Javascript to run.</span></p>
+        <p class='expand'>Expand to show full hours</p>
+      </div>
+
+      <div id='centen' class='head-row'>
+        <h3>Centennial Dining Hall</h3>
+        <button id='centen_status' type='button' class='btn btn-danger disabled'>Closed</button>
+        <p id='centen_desc'>Until x o'clock</p>
+        <button id='centen_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
+      </div>
+      <div class='content-row' id='centen_t'>
+        <table class='table table-hover table-bordered'>
+          <thead><tr><th></th><th>Mon-Thurs</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr></thead>
+          <tr>
+            <th>Breakfast</th>
+            <td colspan=2>7:00 a.m. – 10:00 a.m.</td>
+            <!-- <td>7:00 a.m. – 10:00 a.m.</td> -->
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Cold Breakfast</th>
+            <td colspan=2>10:00 a.m. – 11:00 a.m.</td>
+            <!-- <td>10:00 a.m. – 11:00 a.m.</td> -->
+            <td>9:00 a.m. – 10:30 a.m.</td>
+            <td>9:00 a.m. – 9:30 a.m.</td>
+          </tr>
+          <tr>
+            <th>Lunch/Brunch</th>
+            <td colspan=2>11:00 a.m. – 2:30 p.m.</td>
+            <!-- <td>11:00 a.m. – 2:30 p.m.</td> -->
+            <td>10:30 a.m. – 2:00 p.m.</td>
+            <td>9:30 a.m. – 2:00 p.m.</td>
+          </tr>
+          <tr>
+            <th>Soup & Sandwich</th>
+            <td colspan=2>3:30 p.m. – 4:30 p.m.</td>
+            <!-- <td>3:30 p.m. – 4:30 p.m.</td> -->
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Dinner</th>
+            <td colspan=4>4:30 p.m. – 7:00 p.m.</td>
+            <!-- <td>4:30 p.m. – 7:00 p.m.</td>
+            <td>4:30 p.m. – 7:00 p.m.</td>
+            <td>4:30 p.m. – 7:00 p.m.</td> -->
+          </tr>
+          <tr>
+            <th>Late Night</th>
+            <td>7:00 p.m. – midnight</td>
+            <td colspan=2>Closed</td>
+            <td>7:00 p.m. – midnight</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='head-row'>
+        <h3>Comstock Dining Hall</h3>
+        <button id='com_status' type='button' class='btn btn-danger disabled'>Closed</button>
+        <p id='com_desc'>Until x o'clock</p>
+        <button id='com_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
+      </div>
+      <div class='content-row' id='com_t'>
+        <table class='table table-hover table-bordered'>
+          <thead><tr><th></th><th>Mon-Thurs</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr></thead>
+          <tr>
+            <th>Breakfast</th>
+            <td colspan=2>7:00 a.m. – 10:00 a.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Cold Breakfast</th>
+            <td colspan=2>10:00 a.m. – 11:00 a.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Lunch/Brunch</th>
+            <td colspan=4>11:00 a.m. – 1:30 p.m.</td>
+          </tr>
+          <tr>
+            <th>Soup & Sandwich</th>
+            <td colspan=2>1:30 p.m. – 3:30 p.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Dinner</th>
+            <td>4:30 p.m. – 8:00 p.m.</td>
+            <td colspan=2>4:30 p.m. – 7:00 p.m.</td>
+            <td>4:30 p.m. – 8:00 p.m.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='head-row'>
+        <h3>Fresh Food Co. (17th)</h3>
+        <button id='17_status' type='button' class='btn btn-danger disabled'>Closed</button>
+        <p id='17_desc'>Until x o'clock</p>
+        <button id='17_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
+      </div>
+      <div class='content-row' id='17_t'>
+        <table class='table table-hover table-bordered'>
+          <thead><tr><th></th><th>Mon-Thurs</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr></thead>
+          <tr>
+            <th>Breakfast</th>
+            <td colspan=2>7:00 a.m. – 10:00 a.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Cold Breakfast</th>
+            <td colspan=2>10:00 a.m. – 11:00 a.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Lunch/Brunch</th>
+            <td colspan=2>11:00 a.m. – 2:00 p.m.</td>
+            <td colspan=2>9:00 a.m. - 1:30 p.m.</td>
+          </tr>
+          <tr>
+            <th>Dinner</th>
+            <td>4:30 p.m. – 8:00 p.m.</td>
+            <td colspan=2>4:30 p.m. – 7:00 p.m.</td>
+            <td>4:30 p.m. – 8:00 p.m.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='head-row'>
+        <h3>Pioneer Dining Hall</h3>
+        <button id='pio_status' type='button' class='btn btn-danger disabled'>Closed</button>
+        <p id='pio_desc'>Until x o'clock</p>
+        <button id='pio_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
+      </div>
+      <div class='content-row' id='pio_t'>
+        <table class='table table-hover table-bordered'>
+          <thead><tr><th></th><th>Mon-Thurs</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr></thead>
+          <tr>
+            <th>Breakfast</th>
+            <td colspan=2>7:00 a.m. – 9:30 a.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Cold Breakfast</th>
+            <td colspan=2>9:30 a.m. – 11:00 a.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Lunch/Brunch</th>
+            <td colspan=2>11:00 a.m. – 1:30 p.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Grill, Soup & Salad</th>
+            <td colspan='2'>1:30 p.m. - 3:30 p.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Dinner</th>
+            <td>4:30 p.m. – 7:00 p.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='head-row'>
+        <h3>Sanford Dining Hall</h3>
+        <button id='san_status' type='button' class='btn btn-danger disabled'>Closed</button>
+        <p id='san_desc'>Until x o'clock</p>
+        <button id='san_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
+      </div>
+      <div class='content-row' id='san_t'>
+        <table class='table table-hover table-bordered'>
+          <thead><tr><th></th><th>Mon-Thurs</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr></thead>
+          <tr>
+            <th>Breakfast</th>
+            <td colspan=2>7:00 a.m. – 10:00 a.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Cold Breakfast</th>
+            <td colspan=2>10:00 a.m. – 11:00 a.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Lunch/Brunch</th>
+            <td colspan=2>11:00 a.m. – 2:00 p.m.</td>
+            <td colspan=2>11:00 a.m. – 1:30 p.m.</td>
+          </tr>
+          <tr>
+            <th>Dinner</th>
+            <td>4:30 p.m. – 8:00 p.m.</td>
+            <td colspan=2>4:30 p.m. – 7:00 p.m.</td>
+            <td>4:30 p.m. – 8:00 p.m.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='head-row'>
+        <h3>Middlebrook Dining Hall</h3>
+        <button id='mid_status' type='button' class='btn btn-danger disabled'>Closed</button>
+        <p id='mid_desc'>Until x o'clock</p>
+        <button id='mid_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
+      </div>
+      <div class='content-row' id='mid_t'>
+        <table class='table table-hover table-bordered'>
+          <thead><tr><th></th><th>Mon-Thurs</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr></thead>
+          <tr>
+            <th>Breakfast</th>
+            <td colspan=2>7:00 a.m. – 10:00 a.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Cold Breakfast</th>
+            <td colspan=2>10:00 a.m. – 11:00 a.m.</td>
+            <td>9:00 a.m. - 10:30 a.m.</td>
+            <td>9:00 a.m. - 9:30 a.m.</td>
+          </tr>
+          <tr>
+            <th>Lunch/Brunch</th>
+            <td colspan=2>11:00 a.m. – 2:00 p.m.</td>
+            <td>10:30 a.m. – 2:00 p.m.</td>
+            <td>9:30 a.m. – 2:00 p.m.</td>
+          </tr>
+          <tr>
+            <th>Dinner</th>
+            <td>4:30 p.m. – 8:00 p.m.</td>
+            <td colspan=2>4:30 p.m. – 7:00 p.m.</td>
+            <td>4:30 p.m. – 8:00 p.m.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='head-row'>
+        <h3>Bailey Dining Hall</h3>
+        <button id='bail_status' type='button' class='btn btn-danger disabled'>Closed</button>
+        <p id='bail_desc'>Until x o'clock</p>
+        <button id='bail_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
+      </div>
+      <div class='content-row' id='bail_t'>
+        <table class='table table-hover table-bordered'>
+          <thead><tr><th></th><th>Mon-Thurs</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr></thead>
+          <tr>
+            <th>Breakfast</th>
+            <td colspan=2>7:00 a.m. – 9:00 a.m.</td>
+            <td colspan='2'>Closed</td>
+          </tr>
+          <tr>
+            <th>Cold Breakfast</th>
+            <td colspan='2'>Closed</td>
+            <td>9:00 a.m. - 11:00 a.m.</td>
+            <td>9:00 a.m. - 10:00 a.m.</td>
+          </tr>
+          <tr>
+            <th>Lunch/Brunch</th>
+            <td colspan=2>11:00 a.m. – 1:30 p.m.</td>
+            <td>11:00 a.m. – 1:30 p.m.</td>
+            <td>10:00 a.m. – 1:30 p.m.</td>
+          </tr>
+          <tr>
+            <th>Dinner</th>
+            <td>4:30 p.m. – 8:00 p.m.</td>
+            <td colspan=2>4:30 p.m. – 7:00 p.m.</td>
+            <td>4:30 p.m. – 8:00 p.m.</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src='dininghall.js'></script>
+    <script src='assets/transformicon/transformicon.js'></script>
+    <script>transformicons.add('.tcon')</script>
+
+    <!-- <script>
+    $(document).ready(function(){
+    var header_rows = document.getElementsByClassName('header-row');
+    for (var i=0; i<header_rows.length; i++) {
+    header_rows[i].onclick = function() {
+    $(header_rows[i]).find('tcon')
+  }
+}
+});
+</script> -->
+
+<script>
+$("#centen_b").click(function(){
+  $("#centen_t").slideToggle('slow');
+});
+$("#com_b").click(function(){
+  $("#com_t").slideToggle();
+});
+$("#17_b").click(function(){
+  $("#17_t").slideToggle();
+});
+$("#pio_b").click(function(){
+  $("#pio_t").slideToggle();
+});
+$("#san_b").click(function(){
+  $("#san_t").slideToggle();
+});
+$("#mid_b").click(function(){
+  $("#mid_t").slideToggle();
+});
+$("#bail_b").click(function(){
+  $("#bail_t").slideToggle();
+});
+</script>
+</body>
+</html>
