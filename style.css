@@ -50,7 +50,9 @@ p span {
   color:grey;
 }
 div.head-row {
-  border:1px solid #e5e5e5;
+  border-right:1px solid #7a0019;
+  border-left:1px solid #7a0019;
+  border-bottom:1px solid #e5e5e5;
   padding:10px;
   background:#7a0019;
   color:#fff;
@@ -90,7 +92,7 @@ h3 {
   margin-top:-10px;
 }
 div.content-row {
-  border:1px solid #e5e5e5;
+  border:1px solid #c8c8c8;
   border-top:none;
 }
 .content-row {
@@ -107,6 +109,7 @@ div.content-row {
   text-align:center;
 }
 .bot {
+  text-align:center;
   padding:20px;
 }
 /*==========  Mobile First Method  ==========*/
@@ -142,12 +145,11 @@ div.content-row {
   }
   .head-row .tcon {
     float:right;
-    -webkit-transition: 0.5s ease;
+    /*-webkit-transition: 0.5s ease;
     -moz-transition: 0.5s ease;
     -ms-transition: 0.5s ease;
     -o-transition: 0.5s ease;
-    transition: 0.5s ease;
-
+    transition: 0.5s ease;*/
     margin-top:20px;
   }
   h3 {

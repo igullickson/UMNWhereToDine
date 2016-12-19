@@ -1,7 +1,13 @@
 To Do:
--finish rest of dining halls
+-add 'Closed until ...' functionality
 -consider dynamically creating html tables from the data in the javascript arrays
--add link on bottom to github repo
 
 -translate OOP javascript into more widely supported prototype syntax
 -create minimized.js
+
+-when link is posted, disclaimer shows in preview
+UMN where to eat
+UMN dining
+UMN Dining Halls
+UMN where to dine
+UMN dining eat
