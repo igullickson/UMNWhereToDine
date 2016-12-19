@@ -57,7 +57,7 @@ class DiningHall {
 					if ((this.hours[i][k] > 0) && (time > this.hours[i][k]) && (time < this.hours[i][k+1])) { //if is within time bounds
 						this.isopen = true;
 						this.meal = this.meals[k/2];
-						this.endtime = this.hours[i][k+2];
+						this.endtime = this.hours[i][k+1];
 					}
 				}
 			}
@@ -66,7 +66,7 @@ class DiningHall {
 
 }
 //DATA
-var centen_hours = [
+var cen_hours = [
 	[ //Sunday
 		-1, -1,
 		540, 570,
@@ -97,7 +97,7 @@ var centen_hours = [
 					990, 1140,
 					-1, -1]
 				];
-				var centen_meals = [
+				var cen_meals = [
 					'Breakfast',
 					'Cold Breakfast',
 					'Lunch or Brunch',
@@ -106,32 +106,134 @@ var centen_hours = [
 					'Late Night'
 				];
 				var com_hours = [
-
-
+					[//Sunday
+						-1, -1,
+						-1, -1,
+						660, 810,
+						-1, -1,
+						990, 1200
+					],
+					[//Mon-Thurs
+						420, 600,
+						600, 660,
+						660, 810,
+						810, 930,
+						990, 1200
+					],
+					[//Friday
+						420, 600,
+						600, 660,
+						660, 810,
+						810, 930,
+						990, 1140
+					],
+					[//Saturday
+						-1,-1,
+						-1,-1,
+						660, 810,
+						-1,-1,
+						990, 1140
+					]
 				];
-				//main
-				function main(){
-					centen = new DiningHall('Cenntennial','East Bank Super Block',centen_hours, centen_meals);
-					centen.checkOpen();
-					if (centen.isopen) {
-						var btn = document.getElementById('centen_status');
+				var com_meals = [ //centen_meals[0:centen_meals-2]
+				'Breakfast',
+				'Cold Breakfast',
+				'Lunch or Brunch',
+				'Soup & Sandwhich',
+				'Dinner',
+			];
+			var fre_hours = [
+				[//Sunday
+					-1, -1,
+					-1, -1,
+					540, 810,
+					990, 1200
+				],
+				[//Mon-Thurs
+					420, 600,
+					600, 660,
+					660, 840,
+					990, 1200
+				],
+				[//Friday
+					420, 600,
+					600, 660,
+					660, 810,
+					990, 1140
+				],
+				[//Saturday
+					-1,-1,
+					-1,-1,
+					660, 810,
+					990, 1140
+				]
+			];
+			var fre_meals = [
+				'Breakfast',
+				'Cold Breakfast',
+				'Lunch or Brunch',
+				'Dinner',
+			];
+			var pio_hours = [
+				[//Sunday
+					-1, -1,
+					-1, -1,
+					-1, -1,
+					-1, -1,
+					-1, -1
+				],
+				[//Mon-Thurs
+					420, 570,
+					570, 660,
+					660, 810,
+					810, 930,
+					990, 1140
+				],
+				[//Friday
+					420, 570,
+					570, 660,
+					660, 810,
+					810, 930,
+					990, 1140
+				],
+				[//Saturday
+					-1, -1,
+					-1, -1,
+					-1, -1,
+					-1, -1,
+					-1, -1
+				]
+			];
+			var pio_meals = [
+				'Breakfast',
+				'Cold Breakfast',
+				'Lunch or Brunch',
+				'Grill, Soup & Salad',
+				'Dinner',
+			]
+			//main
+			function main(){
+				cen = new DiningHall('Centennial','East Bank Super Block',cen_hours, cen_meals);
+				com = new DiningHall('Comstock','East Bank',com_hours,com_meals);
+				fre = new DiningHall('Fresh Food Co. (17th)','17th Ave. Residence Hall', fre_hours, fre_meals);
+				pio = new DiningHall('Pioneer','East Bank Super Block', pio_hours, pio_meals);
+				var dininghalls = [cen, com, fre, pio]
+				for (i=0; i < dininghalls.length; i++){
+					var hall = dininghalls[i];
+					var name = hall.name.substr(0,3).toLowerCase();
+					hall.checkOpen();
+					if (hall.isopen) {
+						var btn = document.getElementById(name + '_status');
 						btn.className ='';
 						btn.className = 'btn btn-sucess disabled';
 						btn.className += ' btn-success';
 						btn.innerHTML='Open';
-						document.getElementById('centen_desc').innerHTML = centen.meal + ' until ' + centen.getEndTime();
+						document.getElementById(name + '_desc').innerHTML = hall.meal + ' until ' + hall.getEndTime();
 					}
-					document.getElementById('ctime').innerHTML = DiningHall.getNow();
 				}
+				document.getElementById('ctime').innerHTML = DiningHall.getNow();
+			}
 
-				//repeat every minutes
-				main();
-				setInterval(function(){ main() }, 60000);
-
-				// document.write(DiningHall.getNow());
-				// c = new DiningHall('Centennial','East Bank Superblock', centen_hours, centen_meals);
-				// document.write('<br>');
-				// document.write(c.name);
-				// document.write('<br>');
-				// c.checkOpen();
-				// document.write(c.isopen+c.meal);
+			//repeat every minute
+			main();
+			setInterval(function(){ main() }, 60000);

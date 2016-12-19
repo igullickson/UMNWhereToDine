@@ -10,7 +10,7 @@
   <link href='assets/transformicon/transformicon.css' rel='stylesheet'>
 
   <link href='style.css' rel='stylesheet'>
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
 </head>
 <body>
   <div class='body'>
@@ -18,18 +18,27 @@
       <div class='header'>
         <h2 class='title'><span>U<span id='m'>M</span>N</span> where to eat</h2>
         <p id='ctime'><span>This app requires Javascript to run.</span></p>
-        <p class='expand'>Expand to show full hours</p>
+        <div class='container info'>
+          <div class='row'>
+            <div class='col-sm-6'>
+              <p class='left'>only accurate during the normal academic year*</p>
+            </div>
+            <div class='col-sm-6'>
+              <p class='right'>Expand to show full hours</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div id='centen' class='head-row'>
+      <div id='cen' class='head-row'>
         <h3>Centennial Dining Hall</h3>
-        <button id='centen_status' type='button' class='btn btn-danger disabled'>Closed</button>
-        <p id='centen_desc'>Until x o'clock</p>
-        <button id='centen_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
+        <button id='cen_status' type='button' class='btn btn-danger disabled'>Closed</button>
+        <p id='cen_desc'>No information available.</p>
+        <button id='cen_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
           <span class="tcon-visuallyhidden">add item</span>
         </button>
       </div>
-      <div class='content-row' id='centen_t'>
+      <div class='content-row' id='cen_t'>
         <table class='table table-hover table-bordered'>
           <thead><tr><th></th><th>Mon-Thurs</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr></thead>
           <tr>
@@ -77,7 +86,7 @@
       <div class='head-row'>
         <h3>Comstock Dining Hall</h3>
         <button id='com_status' type='button' class='btn btn-danger disabled'>Closed</button>
-        <p id='com_desc'>Until x o'clock</p>
+        <p id='com_desc'>No information available.</p>
         <button id='com_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
           <span class="tcon-visuallyhidden">add item</span>
         </button>
@@ -115,13 +124,13 @@
 
       <div class='head-row'>
         <h3>Fresh Food Co. (17th)</h3>
-        <button id='17_status' type='button' class='btn btn-danger disabled'>Closed</button>
-        <p id='17_desc'>Until x o'clock</p>
-        <button id='17_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
+        <button id='fre_status' type='button' class='btn btn-danger disabled'>Closed</button>
+        <p id='fre_desc'>No information available.</p>
+        <button id='fre_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
           <span class="tcon-visuallyhidden">add item</span>
         </button>
       </div>
-      <div class='content-row' id='17_t'>
+      <div class='content-row' id='fre_t'>
         <table class='table table-hover table-bordered'>
           <thead><tr><th></th><th>Mon-Thurs</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr></thead>
           <tr>
@@ -151,7 +160,7 @@
       <div class='head-row'>
         <h3>Pioneer Dining Hall</h3>
         <button id='pio_status' type='button' class='btn btn-danger disabled'>Closed</button>
-        <p id='pio_desc'>Until x o'clock</p>
+        <p id='pio_desc'>No information available.</p>
         <button id='pio_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
           <span class="tcon-visuallyhidden">add item</span>
         </button>
@@ -181,7 +190,7 @@
           </tr>
           <tr>
             <th>Dinner</th>
-            <td>4:30 p.m. – 7:00 p.m.</td>
+            <td colspan=2>4:30 p.m. – 7:00 p.m.</td>
             <td colspan='2'>Closed</td>
           </tr>
         </table>
@@ -190,7 +199,7 @@
       <div class='head-row'>
         <h3>Sanford Dining Hall</h3>
         <button id='san_status' type='button' class='btn btn-danger disabled'>Closed</button>
-        <p id='san_desc'>Until x o'clock</p>
+        <p id='san_desc'>No information available.</p>
         <button id='san_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
           <span class="tcon-visuallyhidden">add item</span>
         </button>
@@ -225,7 +234,7 @@
       <div class='head-row'>
         <h3>Middlebrook Dining Hall</h3>
         <button id='mid_status' type='button' class='btn btn-danger disabled'>Closed</button>
-        <p id='mid_desc'>Until x o'clock</p>
+        <p id='mid_desc'>No information available.</p>
         <button id='mid_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
           <span class="tcon-visuallyhidden">add item</span>
         </button>
@@ -261,13 +270,13 @@
 
       <div class='head-row'>
         <h3>Bailey Dining Hall</h3>
-        <button id='bail_status' type='button' class='btn btn-danger disabled'>Closed</button>
-        <p id='bail_desc'>Until x o'clock</p>
-        <button id='bail_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
+        <button id='bai_status' type='button' class='btn btn-danger disabled'>Closed</button>
+        <p id='bai_desc'>No information available.</p>
+        <button id='bai_b' type="button" class="tcon tcon-plus tcon-plus--minus" aria-label="add item">
           <span class="tcon-visuallyhidden">add item</span>
         </button>
       </div>
-      <div class='content-row' id='bail_t'>
+      <div class='content-row' id='bai_t'>
         <table class='table table-hover table-bordered'>
           <thead><tr><th></th><th>Mon-Thurs</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr></thead>
           <tr>
@@ -295,7 +304,7 @@
           </tr>
         </table>
       </div>
-
+<p class='bot info'>*Not necessarily accurate during Thanksgiving, Winter, and Spring break, January or May Term, Finals, and the Summer semester.</p>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -315,14 +324,14 @@
 </script> -->
 
 <script>
-$("#centen_b").click(function(){
-  $("#centen_t").slideToggle('slow');
+$("#cen_b").click(function(){
+  $("#cen_t").slideToggle('slow');
 });
 $("#com_b").click(function(){
   $("#com_t").slideToggle();
 });
-$("#17_b").click(function(){
-  $("#17_t").slideToggle();
+$("#fre_b").click(function(){
+  $("#fre_t").slideToggle();
 });
 $("#pio_b").click(function(){
   $("#pio_t").slideToggle();
@@ -333,8 +342,8 @@ $("#san_b").click(function(){
 $("#mid_b").click(function(){
   $("#mid_t").slideToggle();
 });
-$("#bail_b").click(function(){
-  $("#bail_t").slideToggle();
+$("#bai_b").click(function(){
+  $("#bai_t").slideToggle();
 });
 </script>
 </body>

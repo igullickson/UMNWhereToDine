@@ -43,10 +43,10 @@ p span {
   font-weight:normal;
   font-size:1em;
 }
-p.expand {
+.info {
+  width:inherit;
   font-style:italic;
   color:grey;
-  padding-right:10px;
 }
 div.head-row {
   border:1px solid #e5e5e5;
@@ -105,7 +105,9 @@ div.content-row {
 .content-row thead tr th {
     text-align:center;
 }
-
+.bot {
+padding:20px;
+}
 /*==========  Mobile First Method  ==========*/
 
 /* Custom, iPhone Retina */
@@ -121,8 +123,11 @@ div.content-row {
   div.content-row {
     padding:25px;
   }
-  p.expand {
+  p.right {
     text-align: right;
+  }
+  p.left {
+    text-align:left;
   }
 }
 
