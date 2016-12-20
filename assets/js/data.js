@@ -1,3 +1,4 @@
+//separate file just for the arrays of dining hall meals and open/close hours (in minutes)
 var standard_meals = [
 	'Breakfast',
 	'Cold Breakfast',
