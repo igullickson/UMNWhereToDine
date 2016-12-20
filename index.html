@@ -4,15 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Quickly find which UMN Twin-Cities Dining Halls are open, or when they will be open."/>
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>UMN Where To Eat</title>
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href='assets/transformicon/transformicon.css' rel='stylesheet'>
-
-  <link href='style.css' rel='stylesheet'>
+  <link href='minified.css' rel='stylesheet'>
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 </head>
 <body>
   <div class='body'>
@@ -313,43 +311,31 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src='dininghall.js'></script>
+    <script src='minified.js'></script>
     <script src='assets/transformicon/transformicon.js'></script>
     <script>transformicons.add('.tcon')</script>
-
-    <!-- <script>
-    $(document).ready(function(){
-    var header_rows = document.getElementsByClassName('header-row');
-    for (var i=0; i<header_rows.length; i++) {
-    header_rows[i].onclick = function() {
-    $(header_rows[i]).find('tcon')
-  }
-}
-});
-</script> -->
-
-<script>
-$("#cen_b").click(function(){
-  $("#cen_t").slideToggle('slow');
-});
-$("#com_b").click(function(){
-  $("#com_t").slideToggle();
-});
-$("#fre_b").click(function(){
-  $("#fre_t").slideToggle();
-});
-$("#pio_b").click(function(){
-  $("#pio_t").slideToggle();
-});
-$("#san_b").click(function(){
-  $("#san_t").slideToggle();
-});
-$("#mid_b").click(function(){
-  $("#mid_t").slideToggle();
-});
-$("#bai_b").click(function(){
-  $("#bai_t").slideToggle();
-});
-</script>
-</body>
-</html>
+    <script>
+    $("#cen_b").click(function(){
+      $("#cen_t").slideToggle('slow');
+    });
+    $("#com_b").click(function(){
+      $("#com_t").slideToggle();
+    });
+    $("#fre_b").click(function(){
+      $("#fre_t").slideToggle();
+    });
+    $("#pio_b").click(function(){
+      $("#pio_t").slideToggle();
+    });
+    $("#san_b").click(function(){
+      $("#san_t").slideToggle();
+    });
+    $("#mid_b").click(function(){
+      $("#mid_t").slideToggle();
+    });
+    $("#bai_b").click(function(){
+      $("#bai_t").slideToggle();
+    });
+    </script>
+  </body>
+  </html>
