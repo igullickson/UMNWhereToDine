@@ -1,5 +1,4 @@
-//minified dining Hall DATA
-//end and start hours in minutes for each hall
+//dininghall class written with prototype syntax
 var standard_meals=["Breakfast","Cold Breakfast","Lunch or Brunch","Dinner"],cen_hours=[[-1,-1,540,570,570,840,-1,-1,990,1140,1140,1440],[420,600,600,660,660,870,930,990,990,1140,1140,1440],-1,-1,-1,[420,600,600,660,660,870,930,990,990,1140,-1,-1],[-1,-1,540,630,630,840,-1,-1,990,1140,-1,-1]],cen_meals=["Breakfast","Cold Breakfast","Lunch or Brunch","Soup & Sandwhich","Dinner","Late Night"],com_hours=[[-1,-1,-1,-1,660,810,-1,-1,990,1200],[420,600,600,660,660,810,810,930,990,1200],-1,-1,-1,[420,600,600,660,660,810,810,930,990,1140],[-1,-1,-1,-1,660,810,-1,-1,990,1140]],com_meals=["Breakfast","Cold Breakfast","Lunch or Brunch","Soup & Sandwhich","Dinner"],fre_hours=[[-1,-1,-1,-1,540,810,990,1200],[420,600,600,660,660,840,990,1200],-1,-1,-1,[420,600,600,660,660,810,990,1140],[-1,-1,-1,-1,660,810,990,1140]],pio_hours=[[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[420,570,570,660,660,810,810,930,990,1140],-1,-1,-1,[420,570,570,660,660,810,810,930,990,1140],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]],pio_meals=["Breakfast","Cold Breakfast","Lunch or Brunch","Grill, Soup & Salad","Dinner"],san_hours=[[-1,-1,-1,-1,-1,-1,-1,-1],[420,600,600,660,660,840,990,1200],-1,-1,-1,[420,600,600,660,660,810,990,1140],[-1,-1,-1,-1,660,810,990,1140]],mid_hours=[[-1,-1,540,570,570,840,990,1200],[420,600,600,660,660,840,990,1200],-1,-1,-1,[420,600,600,660,660,840,990,1140],[-1,-1,540,630,630,840,990,1140]],bai_hours=[[-1,-1,540,600,600,810,990,1200],[420,540,-1,-1,660,810,990,1200],-1,-1,-1,[420,540,-1,-1,660,810,990,1140],[-1,-1,540,660,660,810,990,1140]];
 //utility functions
 function minutesToHours(min){
@@ -34,6 +33,17 @@ var DiningHall = function(name, location, hours, meals){
 	this.isopen = false;
 	this.meal = '';
 	this.endtime = '';
+
+	this.day = 0; //current day
+	this.time = 0; //current time in minutes
+}
+DiningHall.prototype.setNow = function() {
+	var now = new Date();
+	this.day = now.getDay();
+	if (this.day > 0 && this.day < 5) { //mon-thurs have same dining hours
+		this.day = 1;
+	}
+	this.time = (now.getHours()*60)+now.getMinutes();
 }
 DiningHall.prototype.getEndTime = function(){
 	if (this.endtime != ''){
@@ -43,13 +53,10 @@ DiningHall.prototype.getEndTime = function(){
 }
 DiningHall.prototype.getOpenTime = function() {
 	if (!this.isopen){
-		var now = new Date();
-		var day = now.getDay();
-		var time = (now.getHours()*60)+now.getMinutes(); //time in minutes
-		if (time < this.hours[day][this.hours[day].length-1]){
-			for (var i = 0; i < this.hours[day].length; i+=2){
-				var opentime = this.hours[day][i];
-				if (opentime > 0 && time < opentime){
+		if (this.time < this.hours[this.day][this.hours[this.day].length-1]){
+			for (var i = 0; i < this.hours[this.day].length; i+=2){
+				var opentime = this.hours[this.day][i];
+				if (opentime > 0 && this.time < opentime){
 					return minutesToHours(opentime);
 				}
 			}
@@ -60,15 +67,10 @@ DiningHall.prototype.getOpenTime = function() {
 	}
 }
 DiningHall.prototype.checkOpen = function(){
-	var now = new Date();
-	var day = now.getDay();
-	var hour = now.getHours();
-	var minute = now.getMinutes();
-	var time = (hour*60)+minute;
 	for(var i = 0; i < this.hours.length; i++) {
-		if (this.hours[i] != 0 && day == i) { //if day is today
+		if (this.hours[i] != 0 && this.day == i) { //if day is today
 			for (var k = 0; k < this.hours[i].length; k+=2){
-				if ((this.hours[i][k] > 0) && (time > this.hours[i][k]) && (time < this.hours[i][k+1])) { //if is within time bounds
+				if ((this.hours[i][k] > 0) && (this.time > this.hours[i][k]) && (this.time < this.hours[i][k+1])) { //if is within time bounds
 					this.isopen = true;
 					this.meal = this.meals[k/2];
 					this.endtime = this.hours[i][k+1];
@@ -91,6 +93,7 @@ function main(){
 	for (i=0; i < dininghalls.length; i++){
 		var hall = dininghalls[i];
 		var name = hall.name.substr(0,3).toLowerCase();
+		hall.setNow();
 		hall.checkOpen();
 		if (hall.isopen) {
 			var btn = document.getElementById(name + '_status');
