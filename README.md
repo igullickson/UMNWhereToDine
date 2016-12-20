@@ -1,4 +1,4 @@
-# UMN Where To Eat
-http://igullickson.github.io/UMNwheretoeat/
+# UMN Where To Dine
+http://igullickson.github.io/UMNwheretodine/
 
-Web app to quickly find which UMN Twin-Cities dining halls are open. Built mobile-first with Bootstrap 3 and OOP Javascript. Work in Progress.
+Web app to quickly find which UMN Twin-Cities dining halls are open and when they will be open. Built mobile-first with Javascript and a little Bootstrap 3.
