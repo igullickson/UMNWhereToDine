@@ -1,11 +1,8 @@
 To Do:
--add 'Closed until ...' functionality
 -consider dynamically creating html tables from the data in the javascript arrays
 
--translate OOP javascript into more widely supported prototype syntax
--create minimized.js
-
 -when link is posted, disclaimer shows in preview
+-make better favicon
 
 Name Options:
 UMN where to eat
@@ -13,3 +10,15 @@ UMN dining
 UMN Dining Halls
 UMN where to dine
 UMN dining eat
+
+-possibly useful junk code
+    <!-- <script>
+    $(document).ready(function(){
+    var header_rows = document.getElementsByClassName('header-row');
+    for (var i=0; i<header_rows.length; i++) {
+    header_rows[i].onclick = function() {
+    $(header_rows[i]).find('tcon')
+  }
+}
+});
+</script> -->
