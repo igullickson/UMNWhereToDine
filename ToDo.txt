@@ -1,5 +1,0 @@
-To Do:
--consider dynamically creating html tables from the data in the javascript arrays
--when link is posted, remove disclaimer in preview
--make better favicon
-
